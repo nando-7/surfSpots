@@ -37,7 +37,8 @@ app.use(express.static( "public"));
 
 
 
-mongoose.connect("mongodb://localhost/surf_spot");
+//mongoose.connect("mongodb://localhost/surf_spot");
+mongoose.connect("mongodb+srv://kellyMedina:9timeswsc@surfspot-9pfyy.mongodb.net/test?retryWrites=true&w=majority");
 
 //body parser takes the request and turn into a useable 
 //java script object ;)
@@ -115,6 +116,7 @@ app.use(authRoutes);
 
  
 
-app.listen(3000, function(){
-  console.log("Server started!");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });
