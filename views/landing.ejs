@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YelpCamp</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        
+    </head>
+    <body>
+    
+    <div class="container">
+        <% if(flashVarError && flashVarError.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= flashVarError %>
+            </div>
+        <% } %>
+        <% if(flashVarSuccess && flashVarSuccess.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= flashVarSuccess %>
+            </div>
+        <% } %>
+    </div>
+    
+    
+    <div id="landing-header">
+ 		<h1 style="font-family: 'Kirang Haerang', cursive;font-size: 57px;">Welcome to Surf Spots!</h1>
+		<a href="/surfSpots" class="btn btn-lg btn-primary transMine">Check it out!</a>
+    </div>
+    
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+<% include partials/footer %>
+

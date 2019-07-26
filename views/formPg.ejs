@@ -1,0 +1,75 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+    
+
+        <h1 style="text-align:center;">Add your favourite Surf Spot!</h1>
+    <div style="width:70%; margin:30px auto;">    
+            <form action="/surfSpots" method="POST">
+                
+                <div class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control" type="text" name="newSpot" placeholder="surf spot name">
+                </div>
+                
+                <div class="form-group">
+                <label for="image">Image</label>
+                <a id="alert" href="#" class="pull-right">How to copy the 'img address'</a>
+                <input class="form-control" type="text" name="newSpotImg" placeholder="copy img address(url) here">
+                </div>
+                
+                <div class="form-group">
+                <label for="description">Description</label>
+                <textarea rows="5" class="form-control" name="newSpotDscp" placeholder="write here whatever you want to talk about the spot..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                <label for="wave">Wave direction</label>
+                <br>
+                
+                <label class="btn btn-secondary active">
+                <input class="form-control" type="radio" name="newWave" value="Right" checked >RIGHT
+                </label>
+                <label class="btn btn-secondary active">
+                <input class="form-control" type="radio" name="newWave" value="Left">LEFT
+                </label>
+                <label class="btn btn-secondary active">
+                <input class="form-control" type="radio" name="newWave" value="Right / Left">RIGHT / LEFT
+                </label>
+               
+                </div>
+                
+                <div class="form-group">
+                <label for="wave">Break type</label>
+                <br>
+                
+                <label class="btn btn-secondary active">
+                <input class="form-control" type="radio" name="newBreak" value="Beach" checked >BEACH
+                </label>
+                <label class="btn btn-secondary active">
+                <input class="form-control" type="radio" name="newBreak" value="Point">POINT
+                </label>
+                <label class="btn btn-secondary active">
+                <input class="form-control" type="radio" name="newBreak" value="Reef">REEF
+                </label>
+               
+                </div>
+                
+                <div class="form-group">
+                <label for="location">Location</label>
+                <input class="form-control" type="text" name="location" id="location" placeholder="eg: Snapper Rocks, Australia">
+                </div>
+                
+                <div class="form-group">
+                <button class="btm btn-lg btn-primary btn-block">ADD NEW SPOT</button>
+                </div>
+                
+            </form>
+            <a href="/surfSpots">Back to spots</a>
+    </div>
+</div>
+
+
+
+
+<% include partials/footer.ejs %>

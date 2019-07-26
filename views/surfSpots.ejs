@@ -1,0 +1,48 @@
+<% include partials/header.ejs%>
+
+<div class="container">
+    
+<% if(currentUserVar && currentUserVar.isAdmin) { %>
+   <h1>Welcome Mr.Admin</h1>
+<% } %>
+
+<header class="jumbotron">
+  <div class="container">
+  <h1 style="font-family: 'Kirang Haerang', cursive; ">Welcome to Surf Spots!!!</h1>
+  <p>
+    This website is for people into surfing and feel like sharing your favourite(s) spots 
+  by adding a sick photo and a brief description of your experience at the break!
+  </p>
+  <p>Have a look at other spots as well and comment your thoughts or experiences. Enjoy your web surf bruh!</p>
+  
+  <h4>
+    <a class="btn btn-primary btn-lg" href="/surfSpots/new">Add your favourite Surf Spot!!!</a>
+  </h4>
+  </div>
+</header>
+
+
+
+<div class="row text-center" style="display:flex; flex-wrap:wrap;">
+
+<% spotsVar.forEach(function(spots) { %>
+ <div class="col-md-3 col-sm-6" >
+   <div class="thumbnail">
+ 
+ <img class="gallery-thumbs" src="<%= spots.img %>">
+ <h4>  <%= spots.name %>  </h4>
+  
+  <p>
+      <a href="/surfspots/<%= spots._id %>" class="btn btn-primary">Check it out</a>
+  </p>
+ </div> 
+ </div>
+<% }) %> 
+  
+</div>  
+</div>
+
+
+  
+  <% include partials/footer.ejs%>
+  

@@ -1,0 +1,137 @@
+<% include partials/header.ejs %>
+<div class="container col-md-9">
+   
+      <div >
+         <div class="thumbnail">
+            
+            
+           <img class="img-responsive gallery-full-img" src="<%=surfSpotVar.img %>">  
+           <div class="caption-full">
+              <h2> <%= surfSpotVar.name %> </h2>
+
+              <% if(currentUserVar && surfSpotVar.author.id.equals(currentUserVar._id) || currentUserVar && currentUserVar.isAdmin) { %>
+                <form id="delete" action="/surfSpots/<%= surfSpotVar._id %>?_method=DELETE" method="POST">
+                 <button class="btn btn-sm btn-danger pull-right">Delete</button>
+                </form>
+                <a style="margin-right: 10px" class="btn btn-sm btn-warning pull-right" href="/surfSpots/<%= surfSpotVar._id %>/edit">Edit Spot</a>
+                <% } %>
+
+              <h5> Wave direction: <%= surfSpotVar.wave %> </h5>
+              <h5> <%= surfSpotVar.breakType %> break </h5>
+              
+             
+              
+              <p><%= surfSpotVar.description %></p>
+              <p>
+                <em>Submitted by: <%= surfSpotVar.author.username %>, <%= moment(surfSpotVar.createdAt).fromNow() %></em>
+              </p>
+              
+              
+           </div>
+         </div>
+         
+         
+         
+         <div class="well">
+            <div class="text-right">
+               
+               
+              <a class="btn btn-success" href="<%= surfSpotVar._id %>/comments/new">Add new comment!</a> 
+            
+            
+            </div>
+            <hr>
+            
+            
+            <% surfSpotVar.comments.forEach(function(comment){ %>
+            
+            
+               <div class="row">
+                  <div class="col-md-12">
+                     
+                     <strong><p>Posted by: <%= comment.author.username %></p></strong>
+                     
+                     <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+                     <p>  
+                     
+                         <%= comment.text %> 
+                         
+                     </p>
+                     
+                     <% if(currentUserVar && comment.author.id.equals(currentUserVar._id)  || currentUserVar && currentUserVar.isAdmin) { %>
+                     <form id="delete" action="/surfSpots/<%= surfSpotVar._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-xs btn-danger pull-right">Delete</button>
+                     </form>
+                     <a style="margin-right: 10px" class="btn btn-xs btn-warning pull-right" href="/surfSpots/<%= surfSpotVar._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                     <% } %>
+                     
+                  </div>   
+                  
+               </div>
+               
+   
+    
+            <% }) %>
+          </div> 
+            
+         </div>
+   </div>
+   </div>
+   
+
+   
+   <div class="row">
+      <div class="col-md-3">
+         <!--<p class="lead">Surf Spots</p>-->
+         
+         <!--<div class="list-group">-->
+         <!--   <li class="list-group-item active">info 1</li>-->
+         <!--   <li class="list-group-item">info2</li>-->
+         <!--   <li class="list-group-item">info3</li>-->
+          
+          
+            
+         <!--</div>-->
+         
+         <div id="map"></div>
+         
+       </div>
+    </div>  
+
+
+<script>
+  function initMap() {
+    var lat = <%= surfSpotVar.lat %>;
+    var lng = <%= surfSpotVar.lng %>;
+    var center = {lat: lat, lng: lng };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: center,
+        scrollwheel: false
+    });
+    var contentString = `
+      <strong><%= surfSpotVar.name %><br />
+      <%= surfSpotVar.location %></strong>
+      <p><%= surfSpotVar.description %></p>
+    `
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker({
+        position: center,
+        map: map
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdeAOCUF249HEh-0ArDqFFszj8TTTz5XI&callback=initMap"></script>
+
+
+<% include partials/footer.ejs %>
+
+
+
+
+   

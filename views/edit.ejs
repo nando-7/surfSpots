@@ -1,0 +1,67 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+    
+
+        <h1 style="text-align:center;">Update <%= surfVar.name %></h1>
+    <div style="width:70%; margin:30px auto;">    
+            <form action="/surfSpots/<%= surfVar._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+                <input class="form-control" type="text" name="surfSpot[name]" placeholder="name" value="<%= surfVar.name %>">
+                </div>
+                <div class="form-group">
+                <input class="form-control" type="text" name="surfSpot[img]" placeholder="img" value="<%= surfVar.img %>">
+                </div>
+                <div class="form-group">
+                <input rows="5" class="form-control" type="text" name="surfSpot[description]" placeholder="description" value="<%= surfVar.description %> ">  
+                </div>
+                
+                <div class="form-group">
+                <label for="wave">Wave direction</label>
+                <br>
+                
+                <label class="btn btn-secondary active">
+                <input class="form-control" type="radio" name="surfSpot[wave]" value="Right" >RIGHT
+                </label>
+                <label class="btn btn-secondary active">
+                <input class="form-control" type="radio" name="surfSpot[wave]" value="Left">LEFT
+                </label>
+                <label class="btn btn-secondary active">
+                <input class="form-control" type="radio" name="surfSpot[wave]" value="Right / Left">RIGHT / LEFT
+                </label>
+               
+                </div>
+                
+                <div class="form-group">
+                <label for="wave">Break type</label>
+                <br>
+                
+                <label class="btn btn-secondary active">
+                <input class="form-control" type="radio" name="surfSpot[breakType]" value="Beach" >BEACH
+                </label>
+                <label class="btn btn-secondary active">
+                <input class="form-control" type="radio" name="surfSpot[breakType]" value="Point">POINT
+                </label>
+                <label class="btn btn-secondary active">
+                <input class="form-control" type="radio" name="surfSpot[breakType]" value="Reef">REEF
+                </label>
+               
+                </div>
+                
+                <div class="form-group">
+                
+                <input class="form-control" type="text" name="surfSpot[location]" id="location" value="<%= surfVar.location %>">
+                </div>
+                
+                <div class="form-group">
+                <button class="btm btn-lg btn-primary btn-block">UPDATE SPOT</button>
+                </div>
+            </form>
+            <a href="/surfSpots">Back to spots</a>
+    </div>
+</div>
+
+
+
+
+<% include partials/footer.ejs %>
