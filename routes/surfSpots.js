@@ -164,40 +164,7 @@ router.delete("/surfSpots/:id", middleware.checkOwnership, function(req, res){
 
 
 
-//middleware function!!! (now in separate folder)
 
-// function isLoggedIn (req, res, next){
-//     if(req.isAuthenticated()){
-//         return next();
-//     }
-//     res.redirect("/login");
-// }
-
-
-
-// another middleware function!!! (now in separate folder)
-// function checkOwnership (req, res, next){
-//     if(req.isAuthenticated()){
-//       SurfSpotsMg.findById(req.params.id, function(error, foundSurfSpot) {
-//           if(error){
-//               res.redirect("back");
-//           } else{
-//               //does user own surf spot?
-//             if(foundSurfSpot.author.id.equals(req.user._id)){
-              
-//               next();
-//             } else{
-//                  res.redirect("back");
-//             }
-//           }
-          
-//       }); 
-//     } else{
-//             res.redirect("back");
-//         }
-    
-    
-// }
 
 
 

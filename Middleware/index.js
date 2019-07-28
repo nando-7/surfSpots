@@ -6,6 +6,7 @@ var Comment = require("../models/comment");
 var middlewareObj = {};
 
 middlewareObj.checkOwnership= function (req, res, next){
+    
     if(req.isAuthenticated()){
       SurfSpotsMg.findById(req.params.id, function(error, foundSurfSpot) {
           if(error){

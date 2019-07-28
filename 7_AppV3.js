@@ -35,10 +35,12 @@ app.use(express.static( "public"));
 //seedDB();
 
 
+var pwd = process.env.DBATLASPWD
+
+mongoose.connect("mongodb://localhost/surf_spot");
+//mongoose.connect("mongodb+srv://kellyMedina:" + pwd + "@surfspot-9pfyy.mongodb.net/test?retryWrites=true&w=majority");
 
 
-//mongoose.connect("mongodb://localhost/surf_spot");
-mongoose.connect("mongodb+srv://kellyMedina:9timeswsc@surfspot-9pfyy.mongodb.net/test?retryWrites=true&w=majority");
 
 //body parser takes the request and turn into a useable 
 //java script object ;)

@@ -29,14 +29,16 @@ router.get("/", function(req, res){
 
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username, email: req.body.email});
-    // if(req.body.adminCode === "admincode5") {
-    //     newUser.isAdmin = true;
-    // }
+    if(req.body.adminCode === process.env.ADMINPWD ) {
+        newUser.isAdmin = true;
+    }
     
     User.register(
     newUser, req.body.password, function (error, user){
         if(error){
-            console.log(error);
+            console.log(req.body.adminCode);
+            console.log("hey");
+            //console.log(error);
             req.flash("error", "Sorry! " + error.message);
             res.redirect("back" );
         }
@@ -55,33 +57,39 @@ router.post("/register", function(req, res){
 
 
 
-router.get("/adminRegister", function(req, res){
+router.get("/admin", function(req, res){
   
   res.render("adminRegister.ejs");
 });
 
 
-router.post("/adminRegister", function(req, res){
-  var newUser = new User({username: req.body.username, email: req.body.email});
-  if(req.body.adminCode === "admincode5") {
-      newUser.isAdmin = true;
-  }
-  User.register(
-  newUser, req.body.password, function (error, user){
-      if(error){
-          console.log(error);
-          req.flash("error", "Sorry! " + error.message);
-          res.redirect("back" );
-      }
-      
-      passport.authenticate("local")(req, res, function(){
-          req.flash("success", "Welcome to Surf Spots bro!!!");
-          res.redirect("/surfspots");
-      
-      });
-  });
 
-});
+
+// router.post("/admin", function(req, res){
+//   var newUser1 = new User({username: req.body.username, email: req.body.email});
+  
+//   if(req.body.adminCode === process.env.ADMINPWD ) {
+    
+//       newUser1.isAdmin = true;
+//   }
+//   User.register(
+//   newUser1, req.body.password, function (error, user){
+//       if(error){
+//           console.log(req.body.adminCode);
+//           console.log("ho");
+//           //console.log(error);
+//           req.flash("error", "Sorryyyyy! " + error.message);
+//           res.redirect("back" );
+//       }
+      
+//       passport.authenticate("local")(req, res, function(){
+//           req.flash("success", "Welcome to Surf Spots bro!!!");
+//           res.redirect("/surfspots");
+      
+//       });
+//   });
+
+// });
 
 
 
@@ -104,7 +112,7 @@ router.post("/login",
     failureRedirect: "/login",
     
     failureFlash: true,
-    successFlash: "Welcome again bruh!"
+    successFlash: "Welcome again bro!"
 }) ,function(req, res){
     
 }); 

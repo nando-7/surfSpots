@@ -125,44 +125,7 @@ router.delete("/surfSpots/:id/comments/:comment_id", middleware.checkOwnershipCo
 
  
  
-//middleware function!!! (now in separate folder)
- 
-// function isLoggedIn (req, res, next){
-//     if(req.isAuthenticated()){
-//         return next();
-//     }
-//     res.redirect("/login");
-// }
 
-
-
-// another middleware function!!! (now in separate folder)
-
-// function checkOwnershipComment (req, res, next){
-//     if(req.isAuthenticated()){
-//       Comment.findById(req.params.comment_id, function(error, foundComment) {
-//           if(error){
-//               res.redirect("back");
-//           } else{
-//               //does user own comment?
-//             if(foundComment.author.id.equals(req.user._id)){
-                
-//                 console.log(foundComment);
-//                 next();
-              
-              
-//             } else{
-//                  res.redirect("back");
-//             }
-//           }
-          
-//       }); 
-//     } else{
-//             res.redirect("back");
-//         }
-    
-    
-// }
 
 
 
