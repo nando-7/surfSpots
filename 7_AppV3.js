@@ -37,8 +37,8 @@ app.use(express.static( "public"));
 
 var pwd = process.env.DBATLASPWD
 
-mongoose.connect("mongodb://localhost/surf_spot");
-//mongoose.connect("mongodb+srv://kellyMedina:" + pwd + "@surfspot-9pfyy.mongodb.net/test?retryWrites=true&w=majority");
+//mongoose.connect("mongodb://localhost/surf_spot");
+mongoose.connect("mongodb+srv://kellyMedina:" + pwd + "@surfspot-9pfyy.mongodb.net/test?retryWrites=true&w=majority");
 
 
 
