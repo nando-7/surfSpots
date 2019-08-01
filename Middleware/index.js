@@ -1,7 +1,7 @@
 var SurfSpotsMg = require ("../models/surfSpot");
 var Comment = require("../models/comment");
 
-//all middlewares go here
+
 
 var middlewareObj = {};
 
