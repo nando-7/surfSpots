@@ -64,38 +64,6 @@ router.get("/admin", function(req, res){
 
 
 
-
-// router.post("/admin", function(req, res){
-//   var newUser1 = new User({username: req.body.username, email: req.body.email});
-  
-//   if(req.body.adminCode === process.env.ADMINPWD ) {
-    
-//       newUser1.isAdmin = true;
-//   }
-//   User.register(
-//   newUser1, req.body.password, function (error, user){
-//       if(error){
-//           console.log(req.body.adminCode);
-//           console.log("ho");
-//           //console.log(error);
-//           req.flash("error", "Sorryyyyy! " + error.message);
-//           res.redirect("back" );
-//       }
-      
-//       passport.authenticate("local")(req, res, function(){
-//           req.flash("success", "Welcome to Surf Spots bro!!!");
-//           res.redirect("/surfspots");
-      
-//       });
-//   });
-
-// });
-
-
-
-
-
-
  
 
 router.get("/login", function(req, res){

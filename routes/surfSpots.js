@@ -15,7 +15,7 @@ var options = {
  
 var geocoder = NodeGeocoder(options);
 
-//INDEX route = display list
+//INDEX
 router.get("/surfSpots", function(req, res){
     SurfSpotsMg.find({},function(error, yeah){
         if(error){
@@ -29,7 +29,7 @@ router.get("/surfSpots", function(req, res){
     
 });
 
-// CREATE = code to create from the new form
+// CREATE
 router.post("/surfSpots", middleware.isLoggedIn,  function(req, res){
     
     var newSpot = req.body.newSpot;
@@ -66,34 +66,27 @@ router.post("/surfSpots", middleware.isLoggedIn,  function(req, res){
         }
     });
 
-    //old way with the array
-    //surfSpots.push({name: newSpot, img: newSpotImg});
+    
     
     });  
 });
 
-//NEW route = form to make new one
+//NEW 
 router.get("/surfSpots/new", middleware.isLoggedIn, function(req, res){
     res.render("formPg.ejs");
 });
 
-// SHOW = show info about each item (must be after NEW!)
+// SHOW
 router.get("/surfSpots/:id", function(req, res){
     SurfSpotsMg.findById(req.params.id
-    
-    //the .populate code (added at the 7min of lesson 326) is to transform the comments id into their actually data
-    //, this coma to separe one to another before having the comments code
-    //and the line below must be taken out for the previous code to work
-    
-    ).populate("comments").exec(
+        ).populate("comments").exec(
     function (error, foundSurfSpot){
         if(error){
             console.log(error);
         }
         else{
             
-            //to see how the .populate get inserted into the surfspot schema!
-            //console.log(foundSurfSpot);
+            
             
             res.render("show.ejs", {surfSpotVar: foundSurfSpot} );
         }
