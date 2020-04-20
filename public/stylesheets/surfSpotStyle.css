@@ -22,7 +22,10 @@ body {
 .thumbnail .gallery-thumbs {
     /*border:1px solid #5489ff;*/
     width: 100%;
-    height: 200px;
+    /* the height in 100% works perfect for mobile
+    but in 200px makes the grid in full page perfectly even */
+    height: 100%;
+    
 }
 
 .thumbnail .gallery-full-img {
