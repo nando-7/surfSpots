@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "description": "surf spot app",
   "engines": {
-    "node": "12.4.0"
+    "node": "18.16.0",
+    "npm": "9.5.1"
   },
   "main": "app.js",
   "scripts": {
