@@ -1,16 +1,16 @@
 {
-  "name": "7_yelp_camp",
-  "version": "1.0.0",
-  "description": "the app yelp",
+  "name": "surf-spot-app",
+  "version": "2.0.0",
+  "description": "surf spot app",
   "engines": {
     "node": "12.4.0"
   },
-  "main": "7_AppV3.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node 7_AppV3.js"
+    "start": "node app.js"
   },
-  "author": "nando",
+  "author": "nando7",
   "license": "ISC",
   "dependencies": {
     "async": "^3.0.1",
